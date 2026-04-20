@@ -6,8 +6,10 @@ function Header(){
             <p className="header-soustitre">
                 Votre guide du transport en commun  a Dakar 
             </p>
+            <hr></hr>
+            {new Date().toLocaleDateString('fr-FR')}
         </header>
     );
 }
 
-export default Header;
+export default Header;                                                            
