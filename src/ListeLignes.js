@@ -1,7 +1,7 @@
 import LigneBus from './LigneBus';
 import './ListeLignes.css';
 
-function ListeLignes({ lignes }) {
+function ListeLignes({ lignes}) {
   return (
     <div className="liste-lignes">
       <h2 className="liste-titre">Lignes Dakar Dem Dikk</h2>
@@ -14,6 +14,7 @@ function ListeLignes({ lignes }) {
             depart={ligne.depart}
             arrivee={ligne.arrivee}
             arrets={ligne.arrets}
+            couleur={ligne.couleur} // <-- C'est cette ligne qui manquait !
           />
         ))}
       </div>
