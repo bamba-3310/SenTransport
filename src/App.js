@@ -80,6 +80,9 @@ const [ligneSelectionnee, setLigneSelectionnee] = useState(null);
     }
 }
 
+  const [compteur, setCompteur] = useState(0);
+
+
   return (
     <div className="App">
       <Header />
@@ -88,13 +91,26 @@ const [ligneSelectionnee, setLigneSelectionnee] = useState(null);
 
         <StatReseau lignes={lignes}/>
 
-        <Recherche valeur={recherche} onChange={setRecherche} />
+        <Recherche 
+          valeur={recherche} 
+          onChange={(val) => {
+            setRecherche(val);
+            setCompteur(prev => prev + 1);
+          }} 
+        />
 
         <div className="resultats-recherche">
           {lignesFiltrees.length} ligne{lignesFiltrees.length > 1 ? 's' : ''} trouvée{lignesFiltrees.length > 1 ? 's' : ''}
         </div>
 
+        <p>Vous avez effectué {compteur} recherche(s)</p>
+
         <div className="liste-lignes">
+          
+          {lignesFiltrees.length === 0 && (
+            <p>Aucune ligne trouvée</p>
+          )}
+
          {lignesFiltrees.map(ligne => ( 
           <LigneBus
             key={ligne.id}
